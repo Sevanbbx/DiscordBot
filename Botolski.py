@@ -2,6 +2,7 @@ import time
 import numpy
 import discord
 import random
+import os
             
 client = discord.Client()
 
