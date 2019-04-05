@@ -1,4 +1,5 @@
 import time
+import numpy
 import discord
 import random
             
@@ -43,13 +44,12 @@ async def on_message(message):
         
     if (message.content.startswith('!timer') and len(message.content) == 9 and "<@&513747383683645460>"):
         seconds = int(message.content[7]) * 10 + int(message.content[8])
-        '''msg = "```\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t RIP Programmer Sevan(20.11.2018-21.11.2018)```".format(message)
-        await client.send_message(message.channel, msg)   '''      
         msg = "```\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTimer Started```".format(message)
         await client.send_message(message.channel, msg)         
-        for i in range(seconds):
+        for i in numpy.arange(0, seconds, 0.5):
             if((seconds - i) == seconds / 2):
-                msg = "```\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thalf of your time passed```".format(message)
+                text = "```\t\t\t\t\t\t\t\t\t\t\t\t\t\t\thalf of your time passed ["+ str(seconds - i) +"] ```"
+                msg = text.format(message)
                 await client.send_message(message.channel, msg)                
             if((seconds - i) == 10):
                 msg = "```\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t10 seconds left```".format(message)
