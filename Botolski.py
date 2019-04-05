@@ -54,7 +54,7 @@ async def on_message(message):
             if((seconds - i) == 10):
                 msg = "```\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t10 seconds left```".format(message)
                 await client.send_message(message.channel, msg)                            
-            time.sleep(1)  
+            time.sleep(0.5)  
             '''if message.content.startswith('!timerstop'):
                 msg = "```\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tTimer Stopped```".format(message)
                 await client.send_message(message.channel, msg)                                            
